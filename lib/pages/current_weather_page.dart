@@ -64,10 +64,6 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
             },
             icon: Icon(Icons.refresh),
           ),
-          // IconButton(
-          //   onPressed: () {},
-          //   icon: Icon(Icons.location_on_outlined),
-          // ),
           IconButton(
             onPressed: _findCityIdByName,
             icon: Icon(Icons.search_rounded),
@@ -140,42 +136,6 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
           ),
         ),
       ),
-      // appBar: AppBar(),
-      // body: CustomScrollView(
-      //   slivers: [
-      //     SliverAppBar(
-      //       expandedHeight: 200,
-      //       actions: [
-      //         IconButton(
-      //           onPressed: () {},
-      //           icon: Icon(Icons.location_on_outlined),
-      //         ),
-      //         IconButton(
-      //           onPressed: _findCityIdByName,
-      //           icon: Icon(Icons.search_rounded),
-      //         ),
-      //       ],
-      //       flexibleSpace: FlexibleSpaceBar(
-      //         titlePadding: EdgeInsets.zero,
-      //         centerTitle: true,
-      //         title: Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: <Widget>[
-      //             Spacer(flex: 3),
-      //             Flexible(
-      //               flex: 1,
-      //               child: Text(
-      //                 "Valmiera",
-      //                 textAlign: TextAlign.center,
-      //               ),
-      //             ),
-      //             Spacer(flex: 1),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
