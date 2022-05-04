@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/api.dart';
-import 'package:weather_app/constans.dart';
+import 'package:weather_app/constants.dart';
 import 'package:weather_app/models/current_weather.dart';
 import 'package:weather_app/pages/search_by_name_page.dart';
 import 'package:weather_app/prefs.dart';
