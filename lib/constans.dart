@@ -1,0 +1,1 @@
+enum Weather { current, weekly }
