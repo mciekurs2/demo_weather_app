@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:weather_app/api.dart';
 import 'package:weather_app/models/cities.dart';
+import 'package:weather_app/prefs.dart';
 
 class SearchPageNamePage extends StatefulWidget {
   const SearchPageNamePage({Key? key}) : super(key: key);
@@ -15,11 +16,18 @@ class _SearchPageNamePageState extends State<SearchPageNamePage> {
   late TextEditingController _controller;
   Timer? _searchDelayTimer;
   Future<List<City>?>? _searchFuture;
+  String? lastCityName;
 
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
+    lastCityName = Prefs.instance?.getString('last_search_city_bane');
+    _controller = TextEditingController(text: lastCityName);
+    if (lastCityName != null) {
+      setState(() {
+        _searchFuture = Api.client.citiesByName(lastCityName!);
+      });
+    }
   }
 
   @override
@@ -35,6 +43,7 @@ class _SearchPageNamePageState extends State<SearchPageNamePage> {
 
     _searchDelayTimer = Timer(const Duration(milliseconds: 500), () {
       if (mounted) {
+        Prefs.instance?.setString('last_search_city_bane', value);
         setState(() {
           _searchFuture = Api.client.citiesByName(value);
         });
@@ -51,7 +60,7 @@ class _SearchPageNamePageState extends State<SearchPageNamePage> {
           controller: _controller,
           onChanged: _onSearchValueChange,
           textInputAction: TextInputAction.search,
-          decoration: InputDecoration(border: InputBorder.none),
+          decoration: const InputDecoration(border: InputBorder.none),
         ),
       ),
       body: Center(

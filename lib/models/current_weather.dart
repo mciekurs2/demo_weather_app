@@ -37,10 +37,10 @@ class Main {
   });
 
   Main.fromJson(json) {
-    temp = json['temp'];
-    tempMin = json['temp_min'];
-    tempMax = json['temp_max'];
-    feelsLike = json['feels_like'];
+    temp = json['temp'].toDouble();
+    tempMin = json['temp_min'].toDouble();
+    tempMax = json['temp_max'].toDouble();
+    feelsLike = json['feels_like'].toDouble();
   }
 }
 
