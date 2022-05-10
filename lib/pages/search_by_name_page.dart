@@ -68,7 +68,7 @@ class _SearchPageNamePageState extends State<SearchPageNamePage> {
           future: _searchFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             } else {
               if (snapshot.hasData) {
                 if (snapshot.data?.isNotEmpty ?? false) {
@@ -87,12 +87,12 @@ class _SearchPageNamePageState extends State<SearchPageNamePage> {
                     },
                   );
                 } else {
-                  return Text('No cities found');
+                  return const Text('No cities found');
                 }
               } else if (snapshot.hasError) {
-                return Text('Error while searching');
+                return const Text('Error while searching');
               }
-              return Text('Search by typing city name');
+              return const Text('Search by typing city name');
             }
           },
         ),
